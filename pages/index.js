@@ -1,65 +1,69 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from "react";
+import { Heading, Flex, Stack, SimpleGrid, Box } from "@chakra-ui/core";
 
-export default function Home() {
+import Layout from "components/Layout";
+import BlogPostPreview from "components/BlogPostPreview";
+import ProjectCard from "components/ProjectCard";
+import useColors from "hooks/useColors";
+
+import { frontMatter as helloWorld } from "./blog/hello-world.mdx";
+
+const Index = () => {
+  const { secondaryTextColor } = useColors();
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Layout>
+      <Stack
+        as="main"
+        spacing={8}
+        justifyContent="center"
+        alignItems="flex-start"
+        m="0 auto 4rem auto"
+        maxWidth="700px"
+      >
+        <Flex flexDirection="column" justifyContent="flex-start" alignItems="flex-start" maxWidth="700px">
+          <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
+            Hi, I’m Noah 👋
+          </Heading>
+          <Heading color={secondaryTextColor} as="h4" size="sm">
+            I'm a full-stack web developer and student based in Switzerland 🇨🇭 This website is still very much WIP...
+          </Heading>
+        </Flex>
+        <Flex
+          flexDirection="column"
+          justifyContent="flex-start"
+          alignItems="flex-start"
+          maxWidth="700px"
+          width="100%"
+          mt={8}
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
-}
+          <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
+            Recent Posts
+          </Heading>
+          <BlogPostPreview {...helloWorld} />
+        </Flex>
+        <Box width="100%">
+          <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
+            Projects
+          </Heading>
+          <SimpleGrid minChildWidth="250px" spacing="30px" alignContent="center">
+            <ProjectCard
+              title="Audiocasts"
+              description="🎧 Platform to host RSS podcast feeds for your audiobooks"
+              link="https://github.com/fnoah/audiocasts"
+              background="linear-gradient(108deg, #4158D0 0%, #C850C0 65%)"
+            />
+            <ProjectCard
+              title="React Relaxed"
+              description="🐢 React Hooks for debouncing and throttling inputs"
+              link="https://github.com/fnoah/react-relaxed"
+              background="linear-gradient(200deg, #fdcc10 0%, #ed17ad 100%)"
+            />
+          </SimpleGrid>
+        </Box>
+      </Stack>
+    </Layout>
+  );
+};
+
+export default Index;
