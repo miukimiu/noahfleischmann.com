@@ -49,12 +49,6 @@ const App = ({ Component, pageProps }) => {
     <>
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        {/* <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism-twilight.min.css"
-          integrity="sha512-akb4nfKzpmhujLUyollw5waBPeohuVf0Z5+cL+4Ngc4Db+V8szzx6ZTujguFjpmD076W8LImVIbOblmQ+vZMKA=="
-          crossorigin="anonymous"
-        /> */}
       </Head>
       <ThemeProvider theme={theme}>
         <MDXProvider components={components}>

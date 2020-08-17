@@ -20,7 +20,7 @@ const BlogPostPreview = (frontMatter) => {
               {title}
             </Heading>
             <Text color="gray.500">
-              {getHumanizedDate(publishedAt)} - {readingTime.text}
+              {getHumanizedDate(publishedAt)} • {readingTime.text}
             </Text>
             <Text color={secondaryTextColor}>{summary}</Text>
           </Stack>

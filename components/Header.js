@@ -14,6 +14,7 @@ const Header = () => {
       maxWidth="1200px"
       width="100%"
       as="nav"
+      h="50px"
       py={8}
       px={[5, 8]}
       mt={[0, 4]}
