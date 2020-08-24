@@ -1,10 +1,10 @@
 import Head from "next/head";
-import { ThemeProvider, CSSReset, ColorModeProvider, useColorMode } from "@chakra-ui/core";
+import { ChakraProvider, CSSReset, useColorMode } from "@chakra-ui/core";
 import { Global, css } from "@emotion/core";
 import { DefaultSeo } from "next-seo";
 import { MDXProvider } from "@mdx-js/react";
 
-import theme from "styles/theme.js";
+import theme from "@chakra-ui/theme";
 import { prismLightTheme, prismDarkTheme } from "styles/prism";
 import SEO_CONFIG from "seo.config.js";
 import components from "components/MDXComponents";
@@ -50,16 +50,14 @@ const App = ({ Component, pageProps }) => {
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
-      <ThemeProvider theme={theme}>
+      <ChakraProvider theme={theme}>
         <MDXProvider components={components}>
-          <ColorModeProvider value="light">
-            <GlobalStyle>
-              <DefaultSeo {...SEO_CONFIG} />
-              <Component {...pageProps} />
-            </GlobalStyle>
-          </ColorModeProvider>
+          <GlobalStyle>
+            <DefaultSeo {...SEO_CONFIG} />
+            <Component {...pageProps} />
+          </GlobalStyle>
         </MDXProvider>
-      </ThemeProvider>
+      </ChakraProvider>
     </>
   );
 };
