@@ -23,7 +23,10 @@ const Index = () => {
       >
         <Flex flexDirection="column" justifyContent="flex-start" alignItems="flex-start" maxWidth="700px">
           <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
-            Hi, I’m Noah 👋
+            Hi, I’m Noah{" "}
+            <span role="img" aria-label="Waving hand">
+              👋
+            </span>
           </Heading>
           <Heading color={secondaryTextColor} as="h4" size="sm">
             I'm a full-stack web developer and student based in Switzerland 🇨🇭 This website is still very much WIP...

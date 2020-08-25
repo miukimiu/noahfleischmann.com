@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, Box, Icon, Text, Stack } from "@chakra-ui/core";
+import { Link, Box, Text, Stack } from "@chakra-ui/core";
+import { FiTwitter, FiGithub, FiMail } from "react-icons/fi";
 
 import useColors from "hooks/useColors";
 
@@ -9,17 +10,16 @@ const Footer = () => {
   return (
     <Box as="footer" bg={bgColor} color="gray.500">
       <Stack spacing={4} mb={6} mt={8} align="center">
-        {/* <Text>© {new Date().getFullYear()} Noah Fleischmann</Text> */}
         <Box>
           <Stack isInline spacing={6}>
             <Link href="https://twitter.com/noahfle" title="Twitter" isExternal>
-              <Icon name="twitter" size="18px" /> Twitter
+              <FiTwitter size="18px" /> Twitter
             </Link>
             <Link href="https://github.com/fnoah" title="GitHub" isExternal>
-              <Icon name="github" size="18px" /> GitHub
+              <FiGithub size="18px" /> GitHub
             </Link>
             <Link href="mailto:nfleischm@gmail.com" title="Email" isExternal>
-              <Icon name="mail" size="18px" /> Email
+              <FiMail size="18px" /> Email
             </Link>
           </Stack>
         </Box>

@@ -4,7 +4,7 @@ import { Global, css } from "@emotion/core";
 import { DefaultSeo } from "next-seo";
 import { MDXProvider } from "@mdx-js/react";
 
-import theme from "@chakra-ui/theme";
+import theme from "styles/theme"
 import { prismLightTheme, prismDarkTheme } from "styles/prism";
 import SEO_CONFIG from "seo.config.js";
 import components from "components/MDXComponents";

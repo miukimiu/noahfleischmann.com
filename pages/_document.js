@@ -1,4 +1,5 @@
 import Document, { Head, Main, NextScript } from "next/document";
+import { InitializeColorMode } from "@chakra-ui/core"
 import GoogleFonts from "next-google-fonts";
 
 class NextDocument extends Document {
@@ -18,6 +19,7 @@ class NextDocument extends Document {
           <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#1d3557" />
         </Head>
         <body>
+          <InitializeColorMode />
           <Main />
           <NextScript />
         </body>

@@ -1,6 +1,7 @@
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useColorMode, Button, Flex, Box, IconButton, Text } from "@chakra-ui/core";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -44,7 +45,7 @@ const Header = () => {
         </NextLink>
         <IconButton
           aria-label="Toggle dark mode"
-          icon={colorMode === "dark" ? "sun" : "moon"}
+          icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
           onClick={toggleColorMode}
           variant="ghost"
           size="lg"
