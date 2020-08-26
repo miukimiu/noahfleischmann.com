@@ -6,10 +6,6 @@ const theme = {
     ...defaultTheme.fonts,
     body: `Inter,sans-serif`,
   },
-  config: {
-    ...defaultTheme.config,
-    useSystemColorMode: true,
-  },
   fontWeights: {
     normal: 400,
     medium: 600,

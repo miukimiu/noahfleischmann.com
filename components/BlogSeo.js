@@ -34,7 +34,7 @@ const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
         datePublished={date}
         description={summary}
         images={[featuredImage]}
-        publisherLogo="/static/favicons/android-chrome-192x192.png"
+        publisherLogo="/favicons/android-chrome-192x192.png"
         publisherName="Noah Fleischmann"
         title={title}
         url={url}
