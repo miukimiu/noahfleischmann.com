@@ -32,7 +32,7 @@ const Blog = () => (
         alignItems="flex-start"
         m="0 auto 4rem auto"
         width="100%"
-        maxWidth="700px"
+        maxWidth="800px"
       >
         <Flex flexDirection="column" justifyContent="flex-start" alignItems="flex-start" maxWidth="700px" width="100%">
           <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
@@ -48,9 +48,10 @@ const Blog = () => (
           mt={8}
         >
           {!blogPosts.length && "No posts found."}
-          {blogPosts.map((frontMatter) => (
-            <BlogPostPreview key={frontMatter.title} {...frontMatter} />
-          ))}
+          {blogPosts.map((frontMatter) => {
+            console.log(frontMatter);
+            return <BlogPostPreview key={frontMatter.title} {...frontMatter} />;
+          })}
         </Flex>
       </Stack>
     </Layout>

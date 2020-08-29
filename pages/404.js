@@ -8,32 +8,25 @@ const Error = () => {
 
   return (
     <Layout>
-      <Stack
-        as="main"
-        spacing={8}
-        justifyContent="center"
-        alignItems="flex-start"
-        m="0 auto 4rem auto"
-        maxWidth="700px"
-      >
-        <Flex flexDirection="column" justifyContent="flex-start" alignItems="center" maxWidth="700px">
-          <Box w="200px" mt="4rem">
+      <Flex justifyContent="center" alignItems="center" maxWidth="800px" margin="0 auto" width="100%" height="100%">
+        <Stack as="main" spacing={6} justifyContent="center" alignItems="center">
+          <Box w="200px">
             {colorMode === "light" ? (
               <img src="/owl_light.svg" alt="Undraw owl illustration" />
             ) : (
               <img src="/owl_dark.svg" alt="Undraw owl illustration" />
             )}
           </Box>
-          <Heading letterSpacing="tight" mt="4rem" as="h2" size="xl">
+          <Heading letterSpacing="tight" as="h2" size="xl">
             Oops, page not found...
           </Heading>
           <NextLink href="/" passHref>
-            <Button as="a" p={[1, 4]} w="250px" fontWeight="bold" m="1.5rem auto 0">
+            <Button as="a" p={[1, 4]} w="250px" fontWeight="bold">
               Take me back home
             </Button>
           </NextLink>
-        </Flex>
-      </Stack>
+        </Stack>
+      </Flex>
     </Layout>
   );
 };

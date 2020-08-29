@@ -15,8 +15,8 @@ const BlogLayout = (frontMatter) => {
     return (
       <Layout>
         <BlogSeo url={`${WEBSITE_URL}/blog/${slug}`} {...frontMatter} />
-        <Stack as="article" justifyContent="center" alignItems="flex-start" m="0 auto" maxWidth="700px" w="100%">
-          <Flex flexDirection="column" justifyContent="flex-start" alignItems="flex-start" maxWidth="700px" w="100%">
+        <Stack as="article" justifyContent="center" alignItems="flex-start" m="0 auto" maxWidth="800px" width="100%">
+          <Flex flexDirection="column" justifyContent="flex-start" alignItems="flex-start" width="100%">
             <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
               {frontMatter.title}
             </Heading>

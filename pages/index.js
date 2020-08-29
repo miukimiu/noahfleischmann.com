@@ -6,10 +6,12 @@ import BlogPostPreview from "components/BlogPostPreview";
 import ProjectCard from "components/ProjectCard";
 import useColors from "hooks/useColors";
 
-import { frontMatter as helloWorld } from "./blog/hello-world.mdx";
+import { frontMatter as helloWorld } from "blog/hello-world.mdx";
 
 const Index = () => {
   const { secondaryTextColor } = useColors();
+
+  console.log(helloWorld);
 
   return (
     <Layout>
@@ -19,7 +21,7 @@ const Index = () => {
         justifyContent="center"
         alignItems="flex-start"
         m="0 auto 4rem auto"
-        maxWidth="700px"
+        maxWidth="800px"
       >
         <Flex flexDirection="column" justifyContent="flex-start" alignItems="flex-start" maxWidth="700px">
           <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">

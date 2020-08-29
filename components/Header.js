@@ -7,20 +7,19 @@ const Header = () => {
   const { pathname } = useRouter();
 
   return (
-    <Box as="header" borderTop="4px" borderColor="#021092">
+    <Box as="header" borderTopWidth="5px" borderColor="#f6416c" px={[5, 8]}>
       <Flex
         flexDirection="row"
         justifyContent="space-between"
         alignItems="center"
-        maxWidth="1200px"
+        maxWidth="800px"
         width="100%"
         as="nav"
         h="50px"
         py={8}
-        px={[5, 8]}
+        m="auto"
         mt={[0, 4]}
         mb={[2, 8]}
-        mx="auto"
       >
         <NextLink href="/" passHref>
           <Text as="a" fontSize="2xl" display={["none", "block"]}>
