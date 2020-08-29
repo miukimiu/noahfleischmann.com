@@ -16,7 +16,7 @@ const secondaryTextColor = {
 };
 
 const tertiaryTextColor = {
-  light: "gray.500",
+  light: "gray.600",
   dark: "gray.400",
 };
 

@@ -27,7 +27,7 @@ const Index = ({ posts }) => {
               👋
             </span>
           </Heading>
-          <Heading color={secondaryTextColor} as="h4" size="sm">
+          <Heading color={secondaryTextColor} as="h2" size="sm">
             I'm a full-stack web developer and student based in Switzerland{" "}
             <span role="img" aria-label="Swiss flag">
               🇨🇭
