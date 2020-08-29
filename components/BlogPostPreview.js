@@ -6,10 +6,8 @@ import { getHumanizedDate } from "utils/date";
 import useColors from "hooks/useColors";
 
 const BlogPostPreview = (frontMatter) => {
-  const { title, summary, publishedAt, readingTime } = frontMatter;
-  const { secondaryTextColor } = useColors();
-
-  const slug = frontMatter.__resourcePath.replace("blog/", "").replace(".mdx", "");
+  const { title, summary, publishedAt, readingTime, slug } = frontMatter;
+  const { secondaryTextColor, tertiaryTextColor } = useColors();
 
   return (
     <NextLink href={`blog/${slug}`} passHref>
@@ -19,7 +17,7 @@ const BlogPostPreview = (frontMatter) => {
             <Heading size="lg" as="h3" fontWeight="medium">
               {title}
             </Heading>
-            <Text color="gray.500">
+            <Text color={tertiaryTextColor}>
               {getHumanizedDate(publishedAt)} • {readingTime.text}
             </Text>
             <Text color={secondaryTextColor}>{summary}</Text>

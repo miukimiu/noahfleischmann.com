@@ -5,10 +5,9 @@ import Layout from "components/Layout";
 import BlogPostPreview from "components/BlogPostPreview";
 import ProjectCard from "components/ProjectCard";
 import useColors from "hooks/useColors";
+import { getAllPosts } from "utils/posts";
 
-import { frontMatter as helloWorld } from "./blog/hello-world.mdx";
-
-const Index = () => {
+const Index = ({ posts }) => {
   const { secondaryTextColor } = useColors();
 
   return (
@@ -19,7 +18,7 @@ const Index = () => {
         justifyContent="center"
         alignItems="flex-start"
         m="0 auto 4rem auto"
-        maxWidth="700px"
+        maxWidth="800px"
       >
         <Flex flexDirection="column" justifyContent="flex-start" alignItems="flex-start" maxWidth="700px">
           <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
@@ -32,8 +31,7 @@ const Index = () => {
             I'm a full-stack web developer and student based in Switzerland{" "}
             <span role="img" aria-label="Swiss flag">
               🇨🇭
-            </span>{" "}
-            This website is still very much WIP...
+            </span>
           </Heading>
         </Flex>
         <Flex
@@ -47,7 +45,10 @@ const Index = () => {
           <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
             Recent Posts
           </Heading>
-          <BlogPostPreview {...helloWorld} />
+          {!posts.length && "No posts found."}
+          {posts.map((frontMatter) => {
+            return <BlogPostPreview key={frontMatter.title} {...frontMatter} />;
+          })}
         </Flex>
         <Box width="100%">
           <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
@@ -72,5 +73,13 @@ const Index = () => {
     </Layout>
   );
 };
+
+export async function getStaticProps() {
+  const posts = getAllPosts().slice(0, 3);
+
+  return {
+    props: { posts },
+  };
+}
 
 export default Index;

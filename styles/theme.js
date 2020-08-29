@@ -4,7 +4,7 @@ const theme = {
   ...defaultTheme,
   fonts: {
     ...defaultTheme.fonts,
-    body: `Inter,sans-serif`,
+    body: `Inter, system-ui, sans-serif`,
   },
   fontWeights: {
     normal: 400,

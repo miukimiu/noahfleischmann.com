@@ -2,12 +2,12 @@ import { useColorMode } from "@chakra-ui/core";
 
 const bgColor = {
   light: "#fefefe",
-  dark: "#100d1f",
+  dark: "#10202C",
 };
 
 const primarytextColor = {
-  light: "black",
-  dark: "white",
+  light: "#242629",
+  dark: "#EFF1F7",
 };
 
 const secondaryTextColor = {
@@ -15,14 +15,14 @@ const secondaryTextColor = {
   dark: "gray.300",
 };
 
+const tertiaryTextColor = {
+  light: "gray.500",
+  dark: "gray.400",
+};
+
 const borderColor = {
   light: "gray.200",
   dark: "gray.600",
-};
-
-const iconColor = {
-  light: "gray.1000",
-  dark: "white",
 };
 
 const useColors = () => {
@@ -33,7 +33,7 @@ const useColors = () => {
     primarytextColor: primarytextColor[colorMode],
     secondaryTextColor: secondaryTextColor[colorMode],
     borderColor: borderColor[colorMode],
-    iconColor: iconColor[colorMode],
+    tertiaryTextColor: tertiaryTextColor[colorMode],
   };
 };
 
