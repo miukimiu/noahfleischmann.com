@@ -1,18 +1,16 @@
 import { NextSeo } from "next-seo";
-import { Heading, Flex, Stack, Input, InputGroup, InputLeftElement, Icon } from "@chakra-ui/core";
+import { Heading, Flex, Stack } from "@chakra-ui/core";
 
 import Layout from "components/Layout";
 import BlogPostPreview from "components/BlogPostPreview";
 import { WEBSITE_URL } from "utils/configuration";
-
-// eslint-disable-next-line import/no-unresolved, import/extensions
-import { frontMatter as blogPosts } from "./blog/**/*.mdx";
+import { getAllPosts } from "utils/posts";
 
 const url = `${WEBSITE_URL}/blog`;
 const title = "Blog – Noah Fleischmann";
 const description = "My blog posts.";
 
-const Blog = () => (
+const Blog = ({ posts }) => (
   <>
     <NextSeo
       title={title}
@@ -47,9 +45,8 @@ const Blog = () => (
           width="100%"
           mt={8}
         >
-          {!blogPosts.length && "No posts found."}
-          {blogPosts.map((frontMatter) => {
-            console.log(frontMatter);
+          {!posts.length && "No posts found."}
+          {posts.map((frontMatter) => {
             return <BlogPostPreview key={frontMatter.title} {...frontMatter} />;
           })}
         </Flex>
@@ -57,5 +54,13 @@ const Blog = () => (
     </Layout>
   </>
 );
+
+export async function getStaticProps() {
+  const posts = getAllPosts();
+
+  return {
+    props: { posts },
+  };
+}
 
 export default Blog;
