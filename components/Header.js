@@ -2,12 +2,15 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useColorMode, Button, Flex, Box, IconButton, Text } from "@chakra-ui/core";
 
+import useColors from "hooks/useColors";
+
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { pathname } = useRouter();
+  const { accentColor } = useColors();
 
   return (
-    <Box as="header" borderTopWidth="5px" borderColor="#f6416c" px={[5, 8]}>
+    <Box as="header" borderTopWidth="5px" borderColor={accentColor} px={[5, 8]}>
       <Flex
         flexDirection="row"
         justifyContent="space-between"

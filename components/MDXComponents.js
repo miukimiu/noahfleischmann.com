@@ -1,6 +1,8 @@
 import { Box, Callout, Code, Heading, Kbd, Link, Text, Divider, useColorMode, Image } from "@chakra-ui/core";
 import NextLink from "next/link";
 
+import useColors from "hooks/useColors";
+
 const TableHead = (props) => {
   const { colorMode } = useColorMode();
   const bg = {
@@ -16,11 +18,7 @@ const TableData = (props) => (
 );
 
 const CustomLink = (props) => {
-  const { colorMode } = useColorMode();
-  const color = {
-    light: "hsl(208, 99%, 44%)",
-    dark: "hsl(208, 95%, 68%)",
-  };
+  const { accentColor } = useColors();
 
   const href = props.href;
   const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
@@ -28,12 +26,12 @@ const CustomLink = (props) => {
   if (isInternalLink) {
     return (
       <NextLink href={href} passHref>
-        <Link color={color[colorMode]} {...props} />
+        <Link color={accentColor} {...props} />
       </NextLink>
     );
   }
 
-  return <Link color={color[colorMode]} isExternal {...props} />;
+  return <Link color={accentColor} isExternal {...props} />;
 };
 
 const Quote = (props) => {

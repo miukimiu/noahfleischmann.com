@@ -25,6 +25,11 @@ const borderColor = {
   dark: "gray.600",
 };
 
+const accentColor = {
+  light: "#f6416c",
+  dark: "#f6416c",
+};
+
 const useColors = () => {
   const { colorMode } = useColorMode();
 
@@ -34,6 +39,7 @@ const useColors = () => {
     secondaryTextColor: secondaryTextColor[colorMode],
     borderColor: borderColor[colorMode],
     tertiaryTextColor: tertiaryTextColor[colorMode],
+    accentColor: accentColor[colorMode],
   };
 };
 
