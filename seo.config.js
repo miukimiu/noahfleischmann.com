@@ -15,7 +15,7 @@ const SEO_CONFIG = {
     description,
     images: [
       {
-        url: `${WEBSITE_URL}/static/images/social-card.jpg`,
+        url: `${WEBSITE_URL}/static/images/social-card.png`,
         alt: title,
         width: 1918,
         height: 1166,
