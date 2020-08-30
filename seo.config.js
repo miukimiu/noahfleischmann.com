@@ -1,6 +1,6 @@
-import { WEBSITE_URL, HANDLE_TWITTER } from "utils/configuration";
+import { WEBSITE_URL, HANDLE_TWITTER, AUTHOR } from "utils/configuration";
 
-const title = "Noah Fleischmann";
+const title = AUTHOR;
 const description = "Personal website and blog";
 
 const SEO_CONFIG = {
@@ -15,7 +15,7 @@ const SEO_CONFIG = {
     description,
     images: [
       {
-        url: `${WEBSITE_URL}/static/images/hello-world.jpg`,
+        url: `${WEBSITE_URL}/static/images/social-card.png`,
         alt: title,
         width: 1918,
         height: 1166,

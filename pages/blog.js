@@ -3,11 +3,11 @@ import { Heading, Flex, Stack } from "@chakra-ui/core";
 
 import Layout from "components/Layout";
 import BlogPostPreview from "components/BlogPostPreview";
-import { WEBSITE_URL } from "utils/configuration";
+import { WEBSITE_URL, AUTHOR } from "utils/configuration";
 import { getAllPosts } from "utils/posts";
 
 const url = `${WEBSITE_URL}/blog`;
-const title = "Blog – Noah Fleischmann";
+const title = `Blog – ${AUTHOR}`;
 const description = "My blog posts.";
 
 const Blog = ({ posts }) => (

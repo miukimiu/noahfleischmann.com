@@ -1,7 +1,7 @@
 import React from "react";
 import { NextSeo, ArticleJsonLd } from "next-seo";
 
-import { WEBSITE_URL } from "utils/configuration";
+import { WEBSITE_URL, AUTHOR } from "utils/configuration";
 
 const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
   const date = new Date(publishedAt).toISOString();
@@ -14,7 +14,7 @@ const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
   return (
     <>
       <NextSeo
-        title={`${title} – Noah Fleischmann`}
+        title={`${title} – ${AUTHOR}`}
         description={summary}
         canonical={url}
         openGraph={{
@@ -25,17 +25,17 @@ const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
           url,
           title,
           description: summary,
-          images: [featuredImage],
+          images: image ? [featuredImage] : null,
         }}
       />
       <ArticleJsonLd
-        authorName="Noah Fleischmann"
+        authorName={AUTHOR}
         dateModified={date}
         datePublished={date}
         description={summary}
         images={[featuredImage]}
         publisherLogo="/static/favicons/android-chrome-192x192.png"
-        publisherName="Noah Fleischmann"
+        publisherName={AUTHOR}
         title={title}
         url={url}
       />
