@@ -1,21 +1,24 @@
-import { Box, Callout, Code, Heading, Kbd, Link, Text, Divider, useColorMode, Image } from "@chakra-ui/core";
+import { Box, Code, Heading, Kbd, Link, Text, Divider, Image } from "@chakra-ui/core";
 import NextLink from "next/link";
 
 import useColors from "hooks/useColors";
 
 const TableHead = (props) => {
-  const { colorMode } = useColorMode();
-  const bg = {
-    light: "gray.50",
-    dark: "whiteAlpha.100",
-  };
+  const { secondaryBgColor, accentColor } = useColors();
 
-  return <Box as="th" bg={bg[colorMode]} fontWeight="semibold" p={2} fontSize="sm" {...props} />;
+  return (
+    <Box
+      as="th"
+      bg={secondaryBgColor}
+      borderTopColor={accentColor}
+      borderTopWidth={2}
+      fontWeight="semibold"
+      p={2}
+      fontSize="sm"
+      {...props}
+    />
+  );
 };
-
-const TableData = (props) => (
-  <Box as="td" p={2} borderTopWidth="1px" borderColor="inherit" fontSize="sm" whiteSpace="normal" {...props} />
-);
 
 const CustomLink = (props) => {
   const { accentColor } = useColors();
@@ -34,61 +37,51 @@ const CustomLink = (props) => {
   return <Link color={accentColor} isExternal {...props} />;
 };
 
-const Quote = (props) => {
-  const { colorMode } = useColorMode();
-  const bgColor = {
-    light: "blue.50",
-    dark: "blue.900",
-  };
+const Quote = ({ children }) => {
+  const { accentColor, secondaryAccentColor } = useColors();
 
   return (
-    <Callout
-      mt={4}
-      w="98%"
-      bg={bgColor[colorMode]}
-      variant="left-accent"
-      status="info"
-      css={{
-        "> *:first-of-type": {
-          marginTop: 0,
-          marginLeft: 8,
-        },
-      }}
-      {...props}
-    />
+    <Box
+      width="100%"
+      as="blockquote"
+      my={4}
+      pb={4}
+      px={4}
+      borderLeftColor={accentColor}
+      borderLeftWidth={4}
+      bg={secondaryAccentColor}
+    >
+      {children}
+    </Box>
   );
 };
 
 const Hr = () => {
-  const { colorMode } = useColorMode();
+  const { borderColor } = useColors();
 
-  const borderColor = {
-    light: "gray.200",
-    dark: "gray.600",
-  };
-
-  return <Divider borderColor={borderColor[colorMode]} my={4} w="100%" />;
+  return <Divider borderColor={borderColor} my={4} w="100%" />;
 };
 
 const components = {
   h1: (props) => <Heading as="h1" size="xl" my={4} {...props} />,
   h2: (props) => <Heading as="h2" fontWeight="bold" size="lg" my={4} {...props} />,
   h3: (props) => <Heading as="h3" size="md" my={4} fontWeight="bold" {...props} />,
-  inlineCode: (props) => <Code variantColor="yellow" fontSize="0.84em" {...props} />,
+  inlineCode: (props) => <Code variantColor="red" fontSize="0.84em" {...props} />,
   img: (props) => <Image rounded="lg" {...props} />,
   kbd: Kbd,
   br: (props) => <Box height="24px" {...props} />,
   hr: Hr,
   table: (props) => <Box as="table" textAlign="left" mt="32px" width="full" {...props} />,
   th: TableHead,
-  td: TableData,
+  td: (props) => (
+    <Box as="td" p={2} borderTopWidth="1px" borderColor="inherit" fontSize="sm" whiteSpace="normal" {...props} />
+  ),
   a: CustomLink,
   p: (props) => <Text as="p" mt={4} lineHeight="tall" {...props} />,
   ul: (props) => <Box as="ul" pt={2} pl={4} ml={2} {...props} />,
   ol: (props) => <Box as="ol" pt={2} pl={4} ml={2} {...props} />,
   li: (props) => <Box as="li" pb={1} {...props} />,
-  blockquote: Quote,
+  blockquote: (props) => <Quote {...props} />,
 };
 
-export { CustomLink };
 export default components;

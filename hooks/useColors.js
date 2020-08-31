@@ -5,6 +5,11 @@ const bgColor = {
   dark: "#10202C",
 };
 
+const secondaryBgColor = {
+  light: "gray.50",
+  dark: "#363842",
+};
+
 const primarytextColor = {
   light: "#242629",
   dark: "#EFF1F7",
@@ -30,16 +35,23 @@ const accentColor = {
   dark: "#f6416c",
 };
 
+const secondaryAccentColor = {
+  light: "#FED7D7",
+  dark: "#363842",
+};
+
 const useColors = () => {
   const { colorMode } = useColorMode();
 
   return {
     bgColor: bgColor[colorMode],
+    secondaryBgColor: secondaryBgColor[colorMode],
     primarytextColor: primarytextColor[colorMode],
     secondaryTextColor: secondaryTextColor[colorMode],
     borderColor: borderColor[colorMode],
     tertiaryTextColor: tertiaryTextColor[colorMode],
     accentColor: accentColor[colorMode],
+    secondaryAccentColor: secondaryAccentColor[colorMode],
   };
 };
 
