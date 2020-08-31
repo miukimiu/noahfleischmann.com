@@ -31,6 +31,13 @@ const GlobalStyle = ({ children }) => {
             scroll-behavior: smooth;
           }
 
+          @media (prefers-reduced-motion: reduce) {
+            html {
+              --duration: 0;
+              scroll-behavior: auto;
+            }
+          }
+
           #__next {
             display: flex;
             flex-direction: column;

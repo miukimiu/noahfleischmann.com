@@ -4,10 +4,10 @@ import { Link, IconButton, Text, Stack, Flex, Box } from "@chakra-ui/core";
 import useColors from "hooks/useColors";
 
 const Footer = () => {
-  const { tertiaryTextColor } = useColors();
+  const { tertiaryTextColor, bgColor } = useColors();
 
   return (
-    <Box px={[5, 8]}>
+    <Box px={[5, 8]} bg={bgColor}>
       <Flex
         flexDirection={["column", "row"]}
         justifyContent="space-between"
