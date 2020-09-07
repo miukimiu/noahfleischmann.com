@@ -1,10 +1,10 @@
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import GoogleFonts from "next-google-fonts";
 
 class NextDocument extends Document {
   render() {
     return (
-      <html lang="en">
+      <Html lang="en">
         <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
         <Head>
           <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
@@ -21,7 +21,7 @@ class NextDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
