@@ -20,7 +20,7 @@ const Footer = () => {
         mb={[2, 8]}
         color={tertiaryTextColor}
       >
-        <Stack isInline spacing={2}>
+        <Stack isInline spacing={2} mb={[2, 0]}>
           <Link href="https://twitter.com/noahfle" title="Twitter" isExternal>
             <IconButton aria-label="Twitter" icon="twitter" size="lg" variant="link" color={tertiaryTextColor} />
           </Link>
