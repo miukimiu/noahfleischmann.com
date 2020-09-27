@@ -16,7 +16,7 @@ const Footer = () => {
         maxWidth="800px"
         as="footer"
         mx="auto"
-        mt={[0, 4]}
+        mt={[4, 8]}
         mb={[2, 8]}
         color={tertiaryTextColor}
       >
