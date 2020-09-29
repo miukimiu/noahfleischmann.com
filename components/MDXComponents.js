@@ -63,9 +63,9 @@ const Hr = () => {
 };
 
 const components = {
-  h1: (props) => <Heading as="h1" size="xl" my={4} {...props} />,
-  h2: (props) => <Heading as="h2" fontWeight="bold" size="lg" my={4} {...props} />,
-  h3: (props) => <Heading as="h3" size="md" my={4} fontWeight="bold" {...props} />,
+  h1: (props) => <Heading as="h1" size="xl" mt={4} {...props} />,
+  h2: (props) => <Heading as="h2" fontWeight="bold" size="lg" mt={4} {...props} />,
+  h3: (props) => <Heading as="h3" size="md" mt={4} fontWeight="bold" {...props} />,
   inlineCode: (props) => <Code variantColor="red" fontSize="0.84em" {...props} />,
   img: (props) => <Image rounded="lg" {...props} />,
   kbd: Kbd,
@@ -77,10 +77,10 @@ const components = {
     <Box as="td" p={2} borderTopWidth="1px" borderColor="inherit" fontSize="sm" whiteSpace="normal" {...props} />
   ),
   a: CustomLink,
-  p: (props) => <Text as="p" mt={4} lineHeight="tall" {...props} />,
+  p: (props) => <Text as="p" mt={2} fontSize="lg" lineHeight="tall" {...props} />,
   ul: (props) => <Box as="ul" pt={2} pl={4} ml={2} {...props} />,
   ol: (props) => <Box as="ol" pt={2} pl={4} ml={2} {...props} />,
-  li: (props) => <Box as="li" pb={1} {...props} />,
+  li: (props) => <Box as="li" fontSize="lg" pb={1} {...props} />,
   blockquote: (props) => <Quote {...props} />,
 };
 

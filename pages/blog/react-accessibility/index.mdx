@@ -1,6 +1,6 @@
 ---
 title: "Accessibility for React Developers"
-publishedAt: "2020-09-28"
+publishedAt: "2020-09-29"
 summary: "An introduction to building accessible interactive React applications"
 ---
 
@@ -10,15 +10,15 @@ import progressBar from "./progress-bar.png";
 
 import { Progress } from "@chakra-ui/core";
 
-## Why accessibility?
+# Introduction
 
 Accessible websites can be used by everyone, regardless of their abilities. Designing and building accessible websites means ensuring they work with assistive technologies like screen readers or keyboard navigation and for people with color deficiencies.
-Of course there are many more disabilities, but these are the most important ones to keep in mind while building your web apps. This article serves as an introduction to accessibility and teaches you the basics of how to build accessible web applications.
+Of course, there are many more disabilities, but these are the most common ones to keep in mind while building your web apps. This article serves as an introduction to accessibility and teaches you the basics of how to build accessible React applications.
 
-## Quick accessibility wins
+## Quick Wins
 
-Your React application will eventually render HTML, so it's not only important that your complex interactive components are accessible, but also you're basic markup and styling. In fact, even making interactive JavaScript-heavy components accessible mainly consists of improving their markup.
-Fortunately, there are a few things you can do which will already greatly increase the accessibility of your site.
+Your React application will eventually render HTML, so it's not only important that your complex interactive components are accessible, but also you're basic markup and styling. Even making interactive JavaScript-heavy components accessible mainly consists of improving their markup.
+But even without considering JavaScript, there are a few things you can do which will already greatly increase the accessibility of your site.
 
 ### Color contrast
 
@@ -26,11 +26,13 @@ The [WCAG 2](https://www.w3.org/TR/WCAG20/) spec defines color contrast as the p
 
 <img src={colorContrast} alt="Illustration of different contrast ratios" />
 
-WCAG recommends to at least have a contrast of 4.5:1 and a contrast of at least 3:1 for text larger than 24 pixels. At least is the keyword here. Try to use a contrast that exceeds the minimum requirements. Both Chrome and Firefox developer tools will show an element's contrast when inspecting it.
+_Illustration by [Accessible Web](https://accessibleweb.com/tips-tools-tutorials/designing-accessibility-mind/)._
+
+WCAG recommends to at least have a contrast of 4.5:1 and 3:1 normal text for text larger than 24 pixels, respectively. At least key here. Try to use a contrast that exceeds the minimum requirements. Both Chrome and Firefox developer tools will show an element's contrast when inspecting it.
 
 ### Alt attribute
 
-Most likely you'll already know these. The alt attribute describes the content of an image. This description comes in handy if an image doesn't load correctly, for search engines who index your site and most importantly for visually impaired users who rely on a screen reader.
+Most likely you're already familiar with this. The alt attribute describes the content of an image. This description comes in handy if an image doesn't load correctly, for search engines that index your site, and most importantly for visually impaired users who rely on a screen reader.
 
 ```javascript
 <img src="image.jpeg" alt="Birch tree on a meadow" />
@@ -38,7 +40,7 @@ Most likely you'll already know these. The alt attribute describes the content o
 
 ### Form labels
 
-Use labels for all interactive elements, also known as form controls, in a form. They help the user understand what the form control does.
+Use labels for all interactive elements in a form, which are also known as form controls. They help the user understand what the form control does.
 
 ```javascript
 // JSX uses htmlFor to associate a label with a form control
@@ -65,34 +67,34 @@ Buttons, such as icon-only buttons, where the purpose is only obvious when rende
 
 ### Document language
 
-The screen reader needs to know in which language content on a website is written in, in order to use the correct pronunciation.
+Screen readers need to know the language of the content on a website to use the correct pronunciation.
 
 ```javascript
 <html lang="en"></html>
 ```
 
-If some elements on a page are written in another language, you can easily add the `lang` attribute to any other HTML element which surrounds the content which is written in another language.
+If some parts on a page are written in another language than the rest of the content, you can add the `lang` attribute to any HTML element which surrounds it.
 
 ```javascript
 <span lang="fr">C'est en français</span>
 ```
 
-## Making interactive elements accessible
+## Making interactive components accessible
 
 There are a few extra steps involved in making high fidelity, interactive applications accessible. So once you implemented the aforementioned steps, try to improve the accessibility of your interactive components, like drop-downs, for example.
 
 ### Using semantic HTML elements
 
-Semantic HTML elements are elements that clearly convey their meaning to both the developer and the browser. Read this [article](https://www.w3schools.com/html/html5_semantic_elements.asp) by W3Schools.
+Semantic HTML elements are elements that convey their meaning to both the developer and the browser. This [article](https://www.w3schools.com/html/html5_semantic_elements.asp) by W3Schools offers a list of elements considered to be semantic.
 
-First of all, instead of relying on divs for your application layout, use the appropriate semantic elements HTML provides you. This helps screen readers and other tools identify the relevant content.
+Instead of relying on divs for your application layout, use the appropriate semantic elements HTML provides you. This helps screen readers and other tools identify the relevant content.
 
 <img
   src={semanticElements}
   alt="Comparison between semantic elements like header, article, figure, and footer versus divs everywhere for a page layout"
 />
 
-When building React applications, you might be tempted to make any element, like a div, for example, an interactive, clickable element. However, in most cases it is way easier to just use the "native" HTML element which comes with all the necessary features for free.
+When developing React applications you have the option to build almost anything using only divs and spans. And while `button` or `select` elements aren't officially considered to be semantic HTML elements, they still convey a clearer meaning compared to a div. So instead of making a div an interactive, clickable element, use the proper HTML element, when available. This will save you from having to use lots of ARIA attributes, which we'll get to later.
 
 ```javascript
 <div role="button" tabIndex="0" onClick={clickHandler}>
@@ -107,9 +109,9 @@ When building React applications, you might be tempted to make any element, like
 
 ### Keyboard navigation
 
-Keyboard navigation is a huge part of accessibility, but it can also come in handy for anyone else who occasionally likes to navigate a website without touching their mouse. Keyboard navigation works by cycling through each interactive element by pressing tab and activating those elements by pressing enter or space.
-There are two important factors to consider when making sure keyboard navigation works correctly on your website: making sure every interactive element is reachable and not having some custom CSS which hides the border that highlights the selected item.
-To manage which elements can be selected, `tabIndex` can be used.
+Keyboard navigation is a huge part of accessibility, but it can also come in handy for anyone else who occasionally likes to navigate a website without touching their mouse. Keyboard navigation works by cycling through each interactive element by pressing tab and activating those elements by pressing enter or space. There are two important factors to consider when making sure keyboard navigation works correctly on your website: making sure every interactive element is reachable and not having custom CSS to hide the border that highlights the selected item. To manage item selection, `tabIndex` can be used.
+
+Elements like links or buttons are inside the tab order per default (meaning, they can be reached using tab), so use them wherever possible. Whenever you have a custom interactive component, like a clickable div, you need to consider using `tabIndex` because otherwise, your component won't be reachable for keyboard users
 
 ```javascript
 tabIndex = "0"; // in tab order, can be selected
@@ -121,20 +123,23 @@ Interactive HTML elements like links or buttons are inside the tab order per def
 
 ### ARIA
 
-ARIA is a specification that's a crucial tool for building accessible web applications. It offers a number of attributes as part of your markup that are used for supplying accessibility information. If you want to develop accessible JavaScript applications, ARIA is arguably the most important technology to do it.
-Since ARIA is complex, my recommendation is to use native, descriptive HTML elements wherever possible which can eliminate the need for ARIA. But there are cases where simply using the proper HTML isn't enough. That's where ARIA comes into play.
+ARIA is a specification that's a crucial tool for building accessible web applications. It offers numerous attributes that are used for supplying accessibility information. If you want to develop accessible JavaScript applications, ARIA is arguably the most important technology to use.
+
+Since ARIA is somewhat complex, my recommendation is to use descriptive HTML elements wherever possible. Often, they eliminate the need for ARIA. But there are cases where simply using proper HTML isn't enough. That's where ARIA comes into play. ARIA attributes are one of three types: roles, properties, and states.
+
 ARIA attributes are one of three types: roles, properties, and states.
 
-- **Role**: Defines what an element is or what is do?
-- **State**: Describes the state of an element, such as "checked" for a checkbox
+- **Role**: Defines what an element is and what is does
+- **State**: Describes the state of an element, such as checked for a checkbox
 - **Property**: Additional properties that semantic HTML doesn't cover
 
-In the next chapters we're going to examine how you can use ARIA to make React components more accessible.
-Here's an overview of ARIA attributes: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques
+Here's a list of all ARIA attributes: [https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques).
+
+In the next chapter, we're going to examine how you can use ARIA to make React components more accessible.
 
 ## Example: Progress Bar
 
-Take a regular progress bar like this one. Now, imagine, how would anyone who relies on a screen reader be able to get to this information? All the information is hidden within the styling, which is useless for a screen reader. The markup could be as little as one empty `div`.
+Take a normal progress bar like this one. Now, imagine, how would anyone who relies on a screen reader be able to understand its content? All the information is hidden within the styling, which is useless for a screen reader. The markup could be as little as one empty div.
 
 <img src={progressBar} alt="Progress bar without any labelling" />
 
@@ -155,7 +160,7 @@ const ProgressBar = ({ progress }) => {
 };
 ```
 
-I chose this example because it nicely shows the capabilities of ARIA. But remember how I said to use semantic HTML wherever possible instead of a meaningless div? Turns out HTML5 comes with a `progress` element. Since screen readers can deal with default HTML elements, there is no need to add ARIA attributes.
+I chose this example because it nicely shows the capabilities of ARIA. But remember how I said to use semantic HTML wherever possible instead of a meaningless div? Turns out HTML5 comes with a `progress` element. Since screen readers can cope with default HTML elements, there is no need to add ARIA attributes.
 
 ```javascript
 <progress id="progress-bar" value="50" max="100">
@@ -163,22 +168,24 @@ I chose this example because it nicely shows the capabilities of ARIA. But remem
 </progress>
 ```
 
-However, if semantic HTML elements aren't flexible for your particular use-case, there is nothing stopping you from building something custom. You just need to put in some extra work to make it accessible. Many popular UI libraries still use divs in combination with ARIA attributes for their progress bars.
+However, if semantic HTML elements aren't flexible enough for your particular use-case, nothing is stopping you from building something custom. You just need to put in some extra work to make it accessible. Many popular UI libraries still use divs in combination with ARIA attributes for their progress bars.
 
 ## Testing
 
 Just like testing every other feature, it is crucial to test accessibility during development. For starters, use some sort of automated test. [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) can spot some accessibility issues. [Accessibility Insights](https://accessibilityinsights.io/) by Microsoft and other tools that are based on the axe-core engine are also good choices.
 
+While automated tests are a good place to start, you shouldn't solely rely on them. It is worth it to perform manual checks by using your website the same way someone who relies on accessibility features would. Great places to start are screen readers (like Voice Over on macOS) and testing controls by using only the keyboard.
+
 ## Ressources
 
 ### React Libraries
 
-While I believe it's important to know how to build accessibly React applications from scratch, there are many great tools that make your life easier by providing customizable components that are accessible by default.
+While I believe it's important to know how to build accessibly React applications from scratch, there are many great tools that can make your life easier by providing customizable components that are accessible by default.
 
 - [Reach UI](https://reach.tech/) provides a great accessible foundation if you want to have complete control over styling
 - [Chakra UI](https://chakra-ui.com/) is my favorite React component library made even better by its focus on accessibility
 
-### Further reading
+### Further readings
 
-- [A11y Coffee](https://a11y.coffee/)
 - [React Accessibility docs](https://reactjs.org/docs/accessibility.html)
+- [A11y Coffee](https://a11y.coffee/)
