@@ -4,6 +4,7 @@ const fs = require("fs");
 
 const globby = require("globby");
 const prettier = require("prettier");
+const { stream } = require("globby");
 
 (async () => {
   const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
@@ -16,7 +17,7 @@ const prettier = require("prettier");
             ${pages
               .map((page) => {
                 const path = page.replace("pages", "").replace(".js", "").replace(".mdx", "");
-                const route = path === "/index" ? "" : path;
+                const route = /\/blog\/(.*)\/index/.test(path) ? path.slice(0, -"/index".length) : path;
 
                 return `
                         <url>
