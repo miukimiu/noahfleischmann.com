@@ -17,7 +17,8 @@ const { stream } = require("globby");
             ${pages
               .map((page) => {
                 const path = page.replace("pages", "").replace(".js", "").replace(".mdx", "");
-                const route = /\/blog\/(.*)\/index/.test(path) ? path.slice(0, -"/index".length) : path;
+                const route =
+                  /\/blog\/(.*)\/index/.test(path) || path === "/index" ? path.slice(0, -"/index".length) : path;
 
                 return `
                         <url>
