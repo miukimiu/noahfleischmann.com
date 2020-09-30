@@ -5,6 +5,7 @@ import { WEBSITE_URL, AUTHOR } from "utils/configuration";
 
 const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
   const date = new Date(publishedAt).toISOString();
+  const route = /\/blog\/(.*)\/index/.test(url) || url === "/index" ? url.slice(0, -"/index".length) : url;
 
   const featuredImage = {
     url: `${WEBSITE_URL}${image}`,
@@ -16,13 +17,13 @@ const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
       <NextSeo
         title={`${title} – ${AUTHOR}`}
         description={summary}
-        canonical={url}
+        canonical={route}
         openGraph={{
           type: "article",
           article: {
             publishedTime: date,
           },
-          url,
+          route,
           title,
           description: summary,
           images: image ? [featuredImage] : null,
@@ -37,7 +38,7 @@ const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
         publisherLogo="/static/favicons/android-chrome-192x192.png"
         publisherName={AUTHOR}
         title={title}
-        url={url}
+        url={route}
       />
     </>
   );
