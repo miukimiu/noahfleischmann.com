@@ -1,10 +1,8 @@
 // Source: https://leerob.io/blog/nextjs-sitemap-robots
 
 const fs = require("fs");
-
 const globby = require("globby");
 const prettier = require("prettier");
-const { stream } = require("globby");
 
 (async () => {
   const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");

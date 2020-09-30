@@ -23,8 +23,8 @@ const SEO_CONFIG = {
     ],
   },
   twitter: {
-    handle: HANDLE_TWITTER,
-    site: HANDLE_TWITTER,
+    handle: "@" + HANDLE_TWITTER,
+    site: "@" + HANDLE_TWITTER,
     cardType: "summary_large_image",
   },
 };

@@ -1,4 +1,6 @@
-export const WEBSITE_URL = "https://noahfleischmann.com";
-export const HANDLE_TWITTER = "@noahfle";
-export const HANDLE_GITHUB = "@fnoah";
-export const AUTHOR = "Noah fleischmann";
+const WEBSITE_URL = "https://noahfleischmann.com";
+const HANDLE_TWITTER = "noahfle";
+const HANDLE_GITHUB = "fnoah";
+const AUTHOR = "Noah fleischmann";
+
+module.exports = { WEBSITE_URL, HANDLE_TWITTER, HANDLE_GITHUB, AUTHOR };
