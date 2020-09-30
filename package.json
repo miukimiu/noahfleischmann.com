@@ -23,7 +23,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-icons": "^3.11.0",
-    "remark-code-titles": "^0.1.1"
+    "remark-code-titles": "^0.1.1",
+    "rss": "^1.2.2"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.11.0",
