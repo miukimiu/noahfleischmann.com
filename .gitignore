@@ -36,3 +36,4 @@ yarn-error.log*
 
 # Custom
 public/sitemap.xml
+public/feed.xml
