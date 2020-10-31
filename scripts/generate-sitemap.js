@@ -4,6 +4,8 @@ const fs = require("fs");
 const globby = require("globby");
 const prettier = require("prettier");
 
+const { WEBSITE_URL } = require("../utils/configuration");
+
 (async () => {
   const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
 
@@ -20,7 +22,7 @@ const prettier = require("prettier");
 
                 return `
                         <url>
-                            <loc>${`https://noahfleischmann.com${route}`}</loc>
+                            <loc>${`${WEBSITE_URL}${route}`}</loc>
                         </url>
                     `;
               })

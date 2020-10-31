@@ -4831,9 +4831,9 @@ next-mdx-enhanced@^4.0.0:
     stringify-object "^3.3.0"
 
 next-seo@^4.7.3:
-  version "4.14.0"
-  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-4.14.0.tgz#8a3243286f65606da81f6fdb0f8b1673ab5dd5a6"
-  integrity sha512-HHL82n2bx1Aj0z8kpy31LoJxzWpZwC/RlXleoO5zNNjJjEGtNS7uZ+wrvAbFGUqC4V54I1sZa4f0WZV+mpOx6w==
+  version "4.15.0"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-4.15.0.tgz#f8dae6d53d45f3d082fb478920088b8e11e75d19"
+  integrity sha512-EOOGOMfN4xeCEM19HxbqQCRhPUNkbhHX6d/f1GyBY/CayyBLmbUCuLBD+QX4PpQb7zj0tShlwm/u6sbrW7o7jw==
 
 next-tick@~1.0.0:
   version "1.0.0"
