@@ -1,5 +1,6 @@
 import { Box, Code, Heading, Kbd, Link, Text, Divider, Image } from "@chakra-ui/core";
 import NextLink from "next/link";
+import NextImage from "next/image";
 
 import useColors from "hooks/useColors";
 
@@ -67,7 +68,7 @@ const components = {
   h2: (props) => <Heading as="h2" fontWeight="bold" size="lg" mt={4} {...props} />,
   h3: (props) => <Heading as="h3" size="md" mt={4} fontWeight="bold" {...props} />,
   inlineCode: (props) => <Code variantColor="red" fontSize="0.84em" {...props} />,
-  img: (props) => <Image rounded="lg" {...props} />,
+  img: (props) => <NextImage width={props.metadata.width} height={props.metadata.height} {...props} />,
   kbd: Kbd,
   br: (props) => <Box height="24px" {...props} />,
   hr: Hr,

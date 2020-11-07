@@ -16,6 +16,7 @@
     "@next/mdx": "^9.5.2",
     "emotion-theming": "^10.0.27",
     "gray-matter": "^4.0.2",
+    "image-size": "^0.9.3",
     "next": "^10.0.0",
     "next-google-fonts": "^1.2.1",
     "next-mdx-enhanced": "^4.0.0",
@@ -27,12 +28,12 @@
     "rss": "^1.2.2"
   },
   "devDependencies": {
+    "enhanced-file-loader": "^0.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.0.8",
-    "file-loader": "^6.0.0",
     "globby": "^11.0.1",
     "prettier": "^2.0.5"
   }
